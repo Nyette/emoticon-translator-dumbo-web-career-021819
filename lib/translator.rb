@@ -16,8 +16,9 @@ end
 
 def get_japanese_emoticon(file_path, western_emoticon)
   emoticons_hash = load_library(file_path)
-  japanese_version = emoticons_hash["get_emoticon"][western_emoticon]
-  if japanese_version.nil?
+  if emoticons_hash["get_emoticon"].has_key?(western_emoticon)
+    japanese_version = emoticons_hash["get_emoticon"][western_emoticon]
+  else
     "Sorry, that emoticon was not found"
   end
 end
